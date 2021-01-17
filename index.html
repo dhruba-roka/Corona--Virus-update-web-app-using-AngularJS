@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>covid-update-app using angularJS</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Angular Js Cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+    <script src="js/myScript.js"></script>
+
+</head>
+<!-- angular body vitra matra hune,
+ if whole html ma grne vaye html ma ng-app="" halne -->
+
+ <body ng-app="MyApp" ng-controller="MyCtrl">
+   <div class="container">
+    <div class="jumbotron py-3">
+
+        <h1 class="text-center">{{title}}</h1>
+            
+       <p class="pt-3"> This is the world famous corona virus update app using angular-JS. This is made by <b><u>Mr. Dhruba Roka</u></b>. You can see the total world data of coronavirus infected cases, death cases, recovered cases. 
+           And you can also see the specific country data by entering the country name. </p>
+        <h4 class="text-center">Stay home, Stay safe!</h4>
+        
+       <!--start of all data  -->
+
+        <div class="row text-center mt-5">
+            <div class="col-md-4">
+              <div class="card bg-warning text-white">
+                  <div class="card-body">
+
+                    <h3>Confirmed cases</h3>
+                    <h3>{{all_data.confirmed.value}}</h3>
+                  </div>
+              </div>  
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+  
+                      <h3>Recovered cases</h3>
+                      <h3>{{all_data.recovered.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+  
+                      <h3>Death cases</h3>
+                      <h3>{{all_data.deaths.value}}</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End of all data -->
+
+        <input type="text" class="form-control mt-4"
+         placeholder="enter country here"
+         ng-model="c"
+         ng-change="get_c_data()" >
+
+         <!-- start of coutry c data -->
+        <div class="container-fluid" ng-if="c_data">
+            <h1 class="text-center mt-4 text-uppercase">{{c}} Covid Status</h1>
+        
+
+         <div class="row text-center mt-4">
+            <div class="col-md-4">
+              <div class="card bg-warning text-white">
+                  <div class="card-body">
+
+                    <h3>Confirmed cases</h3>
+                    <h3>{{c_data.confirmed.value}}</h3>
+                  </div>
+              </div>  
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+  
+                      <h3>Recovered cases</h3>
+                      <h3>{{c_data.recovered.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+  
+                      <h3>Death cases</h3>
+                      <h3>{{c_data.deaths.value}}</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+         <!-- end of c data -->
+         
+        
+
+    </div>
+   </div>
+</body>
+</html>
